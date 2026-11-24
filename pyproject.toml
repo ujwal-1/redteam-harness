@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rtharness"
+version = "0.1.0"
+description = "Red-team harness for LLM agents: prompt injection, exfiltration and tool abuse, with objective scoring"
+requires-python = ">=3.9"
+dependencies = ["pyyaml>=6"]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+rtharness = "rtharness.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
